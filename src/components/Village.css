@@ -1,0 +1,15 @@
+.villageTitle{
+    background-image: url('https://www.publicdomainpictures.net/pictures/210000/nahled/wooden-background-14908986352WQ.jpg');
+    color: white;
+    text-shadow: 1px 2px black;
+    border-radius: 0px 0px 15px 15px;
+}
+.charBckgrnd{
+    background-image: url('http://atextures.com/wp-content/uploads/2014/08/Asphalt-Stone-Background-115-625x416.jpg');
+    color: black;
+    font-weight: bold; 
+    height: 900px;
+}
+.charBckgrnd span{
+    margin-bottom: 15px;
+}

@@ -33,6 +33,7 @@ class App extends Component {
           </Route>
           <Route path='/Village'>
             <Village
+              knightPic={this.state.knightPic}
               charName={this.state.charName}
               charClass={this.state.charClass}
               />
