@@ -12,12 +12,12 @@ class Village extends Component {
     componentDidMount(){
         console.log(this.props)
     }
-    render() { 
-        return ( 
+    render() {
+        return (
             <div className="Village">
             <Row>
                 <Col xs="2" className="pt-5 pl-4 text-center charBckgrnd">
-                    <CharUI 
+                    <CharUI
                     knightPic={this.props.knightPic}
                     charClass={this.props.charClass}
                     charName={this.props.charName}
@@ -37,7 +37,7 @@ class Village extends Component {
                     </Row>
                     <Row className="mt-5 justify-content-center">
                         <Button>Tavern</Button>
-                    </Row> 
+                    </Row>
                     <Row className="mt-5">
                         <Col  className="text-center">
                             <Button>Potions</Button>
