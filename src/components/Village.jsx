@@ -3,6 +3,9 @@ import CharUI from './CharUI';
 import { Col, Row, Button } from 'reactstrap';
 import Blacksmith from './Blacksmith'
 import './Village.css'
+import Tavern from './Tavern';
+import PotionShop from './PotionShop';
+import WeaponsShop from './WeaponsShop';
 
 class Village extends Component {
     constructor(props) {
@@ -23,11 +26,11 @@ class Village extends Component {
                     charName={this.props.charName}
                     />
                 </Col>
-                <Col xs="7">
+                <Col xs="8" className="villageBckgrnd">
                     <Row className="pt-5 pb-5 justify-content-center villageTitle">
                      <h1>The village</h1>
                     </Row>
-                    <Row className="mt-5">
+                    <Row className="villageRow">
                         <Col xs="6" className="text-center">
                             <Blacksmith buttonLabel='Blacksmith'/>
                         </Col>
@@ -36,19 +39,19 @@ class Village extends Component {
                         </Col>
                     </Row>
                     <Row className="mt-5 justify-content-center">
-                        <Button>Tavern</Button>
+                        <Tavern buttonLabel="Tavern" />
                     </Row>
                     <Row className="mt-5">
                         <Col  className="text-center">
-                            <Button>Potions</Button>
+                            <PotionShop buttonLabel="PotionShop"/>
                         </Col>
                         <Col className="text-center">
-                            <Button>Weapons shop</Button>
+                            <WeaponsShop buttonLabel="WeaponsShop"/>
                         </Col>
                     </Row>                   
                 </Col>
-                <Col xs="2">
-                    <Row className="justify-content-start">
+                <Col className="ml-1 questBckgrnd">
+                    <Row className="justify-content-center">
                         <h3>Quests :</h3>
                     </Row>
                     

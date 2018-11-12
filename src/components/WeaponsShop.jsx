@@ -3,7 +3,7 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-class Blacksmith extends React.Component {
+class WeaponsShop extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,12 +24,12 @@ class Blacksmith extends React.Component {
       <div>
         <Button color="secondary" onClick={this.toggle}>{this.props.buttonLabel}</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Welcome adventurer ! You'd like to repair some stuff ?</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Looking for the best weapons ? They're all here !</ModalHeader>
           <ModalBody>
-            <img className="w-100" src="https://orig00.deviantart.net/9a79/f/2014/143/e/1/kyklopes_blacksmith_by_nathanrosario-d7jh3i3.jpg" alt="Blacksmith" />
+            <img className="w-100" src="https://pbs.twimg.com/media/Dhr4C_IUYAI4FcI.jpg" alt="Blacksmith" />
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Repair</Button>{' '}
+            <Button color="primary" onClick={this.toggle}>Buy/sell weapons</Button>{' '}
             <Button color="secondary" onClick={this.toggle}>Back to village</Button>
           </ModalFooter>
         </Modal>
@@ -38,4 +38,4 @@ class Blacksmith extends React.Component {
   }
 }
 
-export default Blacksmith;
+export default WeaponsShop;

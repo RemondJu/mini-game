@@ -1,9 +1,9 @@
-const charClass = (state= 'bg-light', action) => {
+const cardClass2 = (state= 'bg-light', action) => {
     switch(action.type){
-        case 'CLICKED': return state = 'success'; break;
-        case 'UNCLICKED': return state = 'bg-light'; break;
+        case 'CLICKED': return state = 'bg-success';
+        case 'UNCLICKED': return state = 'bg-light';
         default: return state;
     }
 }
 
-export default charClass;
+export default cardClass2;

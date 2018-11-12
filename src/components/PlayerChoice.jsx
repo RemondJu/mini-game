@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import './PlayerChoice.css'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { cardClick, cardUnClick } from '../actions';
+import { cardClick1, cardClick2, cardClick3, cardUnClick } from '../actions';
 
 class PlayerChoice extends Component {
     constructor(props) {
@@ -20,7 +20,7 @@ class PlayerChoice extends Component {
             invalidInput: false,
          }
         /* this.handleClassChoice = this.handleClassChoice.bind(this); */
-        this.handleClassChoiceTest = this.handleClassChoiceTest.bind(this);
+       /*  this.handleClassChoiceTest = this.handleClassChoiceTest.bind(this); */
         this.nameInputChange = this.nameInputChange.bind(this);
     }
 /* 
@@ -78,12 +78,14 @@ class PlayerChoice extends Component {
             
         }        
     }
-    handleClassChoiceTest(e){
-        console.log(cardClick)
+   /*  handleClassChoiceTest(e){
+        console.log(this.props)
         if(this.props[e.target.name] === 'bg-light'){
             return cardClick();
+        } else {
+            return cardUnClick();
         }
-    }
+    } */
 
     render() { 
         return (
@@ -98,26 +100,26 @@ class PlayerChoice extends Component {
                 <h5>Choose a character :</h5>
                     <Row>
                         <Col>
-                            <Card className={this.props.cardClass1} name="cardClass1" onClick={this.handleClassChoiceTest}>
-                                <CardImg top width="100%" name="cardClass1" src="https://png.icons8.com/metro/1600/doctor-fate-helmet.png" alt="Knight avatar" />
-                                <CardBody name="cardClass1">
-                                <CardTitle name="cardClass1">Knight</CardTitle>
+                            <Card className={this.props.cardClass1} name={this.props.cardClass1} onClick={this.props.cardClick1}>
+                                <CardImg top width="100%" name={this.props.cardClass1} src="https://png.icons8.com/metro/1600/doctor-fate-helmet.png" alt="Knight avatar" />
+                                <CardBody name={this.props.cardClass1}>
+                                <CardTitle name={this.props.cardClass1}>Knight</CardTitle>
                                 </CardBody>
                             </Card>
                         </Col>
                         <Col>
-                            <Card className={this.props.cardClass2} name="cardClass2" onClick={this.handleClassChoiceTest}>
-                                <CardImg top width="100%" name="cardClass2" src="https://png.icons8.com/ios/1600/archer.png" alt="Archer avatar" />
-                                <CardBody name="cardClass2">
-                                <CardTitle name="cardClass2">Archer</CardTitle>
+                            <Card className={this.props.cardClass2} name={this.props.cardClass2} onClick={this.props.cardClick2}>
+                                <CardImg top width="100%" name={this.props.cardClass2} src="https://png.icons8.com/ios/1600/archer.png" alt="Archer avatar" />
+                                <CardBody name={this.props.cardClass2}>
+                                <CardTitle name={this.props.cardClass2}>Archer</CardTitle>
                                 </CardBody>
                             </Card>
                         </Col>
                         <Col>
-                            <Card className={this.props.cardClass3} name="cardClass3" onClick={this.handleClassChoiceTest}>
-                                <CardImg top width="100%" name="cardClass3" src="https://png.icons8.com/metro/1600/wizard.png" alt="Wizard avatar" />
-                                <CardBody name="cardClass3">
-                                <CardTitle name="cardClass3">Wizard</CardTitle>
+                            <Card className={this.props.cardClass3} name={this.props.cardClass3} onClick={this.props.cardClick3}>
+                                <CardImg top width="100%" name={this.props.cardClass1} src="https://png.icons8.com/metro/1600/wizard.png" alt="Wizard avatar" />
+                                <CardBody name={this.props.cardClass3}>
+                                <CardTitle name={this.props.cardClass3}>Wizard</CardTitle>
                                 </CardBody>
                             </Card>
                         </Col>
@@ -150,7 +152,7 @@ function mstp (state){
     }
 }
 function mdtp(dispatch) {
-    return bindActionCreators({ cardClick, cardUnClick }, dispatch)
+    return bindActionCreators({ cardClick1, cardClick2, cardClick3, cardUnClick }, dispatch)
 }
 
 export default connect(mstp, mdtp)(PlayerChoice);

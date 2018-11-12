@@ -8,7 +8,13 @@ export const getCharName = value => ({
     value
 });
 
-export const cardClick = () => ({
+export const cardClick1 = () => ({
+    type: 'CLICKED'
+});
+export const cardClick2 = () => ({
+    type: 'CLICKED'
+});
+export const cardClick3 = () => ({
     type: 'CLICKED'
 });
 
