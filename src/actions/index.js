@@ -9,13 +9,13 @@ export const getCharName = value => ({
 });
 
 export const cardClick1 = () => ({
-    type: 'CLICKED'
+    type: 'CLICKED1'
 });
 export const cardClick2 = () => ({
-    type: 'CLICKED'
+    type: 'CLICKED2'
 });
 export const cardClick3 = () => ({
-    type: 'CLICKED'
+    type: 'CLICKED3'
 });
 
 export const cardUnClick = () => ({

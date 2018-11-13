@@ -10,29 +10,15 @@ class PlayerChoice extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            /* cardClass1: 'bg-light',
-            cardClass2: 'bg-light',
-            cardClass3: 'bg-light', */
             currentClass: '',
             currentCharName: '',
             disabledBtn: true,
             validInput: false,
             invalidInput: false,
          }
-        /* this.handleClassChoice = this.handleClassChoice.bind(this); */
-       /*  this.handleClassChoiceTest = this.handleClassChoiceTest.bind(this); */
         this.nameInputChange = this.nameInputChange.bind(this);
     }
-/* 
-    handleClassChoice(e){
-        this.setState({
-            cardClass1: 'bg-light',
-            cardClass2: 'bg-light',
-            cardClass3: 'bg-light',
-            [e.target.name]: "bg-success",
-        })
-    } */
-    
+
     nameInputChange(e){
         if ((this.state.currentCharName.length >= 4)&&(this.state.currentClass.length > 1)){
             this.setState({
@@ -78,14 +64,6 @@ class PlayerChoice extends Component {
             
         }        
     }
-   /*  handleClassChoiceTest(e){
-        console.log(this.props)
-        if(this.props[e.target.name] === 'bg-light'){
-            return cardClick();
-        } else {
-            return cardUnClick();
-        }
-    } */
 
     render() { 
         return (
