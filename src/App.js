@@ -3,23 +3,19 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom'
 import PlayerChoice from './components/PlayerChoice'
 import Village from './components/Village';
+import Dungeon from './components/Dungeon';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      charName: '',
-      charClass: '',
-      knightPic: 'https://png.icons8.com/metro/1600/doctor-fate-helmet.png',
-      archerPic: 'https://png.icons8.com/ios/1600/archer.png',
-      wizardPic: 'https://png.icons8.com/metro/1600/wizard.png',
+      charName: 'Unknown',
      }
     this.submitPlayerName = this.submitPlayerName.bind(this);
   }
-  submitPlayerName(name, charClass){
+  submitPlayerName(name){
     this.setState({
       charName: name,
-      charClass: charClass,
     })
   }
   render() {
@@ -32,11 +28,12 @@ class App extends Component {
             />
           </Route>
           <Route path='/Village'>
-            <Village
-              knightPic={this.state.knightPic}
-              charName={this.state.charName}
-              charClass={this.state.charClass}
-              />
+            <Village 
+            charName={this.state.charName}/>
+          </Route>
+          <Route path='/Dungeon'>
+            <Dungeon 
+            charName={this.state.charName}/>
           </Route>
         </Switch>
       </div>

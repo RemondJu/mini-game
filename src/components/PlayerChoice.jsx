@@ -9,8 +9,7 @@ import { cardClick1, cardClick2, cardClick3 } from '../actions';
 class PlayerChoice extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
-            currentClass: '',
+        this.state = {
             currentCharName: '',
             disabledBtn: true,
             validInput: false,
@@ -20,7 +19,7 @@ class PlayerChoice extends Component {
     }
 
     nameInputChange(e){
-        if ((this.state.currentCharName.length >= 4)&&(this.state.currentClass.length > 1)){
+        if ((this.state.currentCharName.length >= 4)&&(this.props.charClass !== 'Adventurer')){
             this.setState({
                 disabledBtn: false,
                 currentCharName: e.target.value,
@@ -34,7 +33,6 @@ class PlayerChoice extends Component {
                     currentCharName: e.target.value,
                     validInput: false,
                     invalidInput: true,
-                    currentClass: 'Knight'
                 })
             } else if (this.props.cardClass2 === 'bg-success'){
                 this.setState({
@@ -42,7 +40,6 @@ class PlayerChoice extends Component {
                     currentCharName: e.target.value,
                     validInput: false,
                     invalidInput: true,
-                    currentClass: 'Archer'
                 })
             } else if (this.props.cardClass3 === 'bg-success'){
                 this.setState({
@@ -50,7 +47,6 @@ class PlayerChoice extends Component {
                     currentCharName: e.target.value,
                     validInput: false,
                     invalidInput: true,
-                    currentClass: 'Wizard'
                 })
 
             } else {
@@ -113,7 +109,7 @@ class PlayerChoice extends Component {
                             <FormFeedback invalid>The name is too short, or you didn't pick a class yet...</FormFeedback>
                         </FormGroup>
                         <Row className="justify-content-center">
-                            <NavLink to="/Village"><Button onClick={() => this.props.submitPlayerName(this.state.currentCharName, this.state.currentClass)} disabled={this.state.disabledBtn} type="submit">Play !</Button></NavLink>
+                            <NavLink to="/Village"><Button onClick={() => this.props.submitPlayerName(this.state.currentCharName)} disabled={this.state.disabledBtn} type="submit">Play !</Button></NavLink>
                         </Row>
                     </Form>                    
                 </Container>
@@ -126,7 +122,8 @@ function mstp (state){
     return {
         cardClass1: state.cardClass1,
         cardClass2: state.cardClass2,
-        cardClass3: state.cardClass3
+        cardClass3: state.cardClass3,
+        charClass: state.charClass
     }
 }
 function mdtp(dispatch) {

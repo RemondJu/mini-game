@@ -2,11 +2,12 @@ import React from 'react';
 import './CharUI.css'
 import CharStats from './CharStats';
 import Inventory from './Inventory';
+import { connect } from 'react-redux';
 
 const CharUI = (props) => {
     return ( 
         <div className="CharUI">
-            <img className="w-100" src={props.knightPic} alt="Knight icon"/>
+            <img className="w-100" src={props.charPic} alt="Knight icon"/>
             <h3>{props.charName}</h3>
             <span>{props.charClass}</span>
             <span>HP : 150 / 150</span>
@@ -19,5 +20,12 @@ const CharUI = (props) => {
         </div>
      );
 }
+function mstp (state){
+    return {
+        charPic: state.charPic,
+        charClass: state.charClass
+    }
+}
+
  
-export default CharUI;
+export default connect(mstp)(CharUI);
