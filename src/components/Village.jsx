@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import CharUI from './CharUI';
-import { Col, Row, Button } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 import Blacksmith from './Blacksmith'
 import './Village.css'
 import Tavern from './Tavern';
 import PotionShop from './PotionShop';
 import WeaponsShop from './WeaponsShop';
+import Training from './Training';
 
 class Village extends Component {
     constructor(props) {
@@ -35,7 +36,7 @@ class Village extends Component {
                             <Blacksmith buttonLabel='Blacksmith'/>
                         </Col>
                         <Col xs="6" className="text-center">
-                            <Button>Training</Button>
+                            <Training buttonLabel="Training"/>
                         </Col>
                     </Row>
                     <Row className="mt-5 justify-content-center">
@@ -43,10 +44,10 @@ class Village extends Component {
                     </Row>
                     <Row className="mt-5">
                         <Col  className="text-center">
-                            <PotionShop buttonLabel="PotionShop"/>
+                            <PotionShop buttonLabel="Potions Shop"/>
                         </Col>
                         <Col className="text-center">
-                            <WeaponsShop buttonLabel="WeaponsShop"/>
+                            <WeaponsShop buttonLabel="Weapons Shop"/>
                         </Col>
                     </Row>                   
                 </Col>

@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import './PlayerChoice.css'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { cardClick1, cardClick2, cardClick3, cardUnClick } from '../actions';
+import { cardClick1, cardClick2, cardClick3 } from '../actions';
 
 class PlayerChoice extends Component {
     constructor(props) {
@@ -78,26 +78,26 @@ class PlayerChoice extends Component {
                 <h5>Choose a character :</h5>
                     <Row>
                         <Col>
-                            <Card className={this.props.cardClass1} name={this.props.cardClass1} onClick={this.props.cardClick1}>
-                                <CardImg top width="100%" name={this.props.cardClass1} src="https://png.icons8.com/metro/1600/doctor-fate-helmet.png" alt="Knight avatar" />
-                                <CardBody name={this.props.cardClass1}>
-                                <CardTitle name={this.props.cardClass1}>Knight</CardTitle>
+                            <Card className={this.props.cardClass1} onClick={this.props.cardClick1}>
+                                <CardImg top width="100%" src="https://png.icons8.com/metro/1600/doctor-fate-helmet.png" alt="Knight avatar" />
+                                <CardBody>
+                                <CardTitle>Knight</CardTitle>
                                 </CardBody>
                             </Card>
                         </Col>
                         <Col>
-                            <Card className={this.props.cardClass2} name={this.props.cardClass2} onClick={this.props.cardClick2}>
-                                <CardImg top width="100%" name={this.props.cardClass2} src="https://png.icons8.com/ios/1600/archer.png" alt="Archer avatar" />
-                                <CardBody name={this.props.cardClass2}>
-                                <CardTitle name={this.props.cardClass2}>Archer</CardTitle>
+                            <Card className={this.props.cardClass2} onClick={this.props.cardClick2}>
+                                <CardImg top width="100%" src="https://png.icons8.com/ios/1600/archer.png" alt="Archer avatar" />
+                                <CardBody>
+                                <CardTitle>Archer</CardTitle>
                                 </CardBody>
                             </Card>
                         </Col>
                         <Col>
-                            <Card className={this.props.cardClass3} name={this.props.cardClass3} onClick={this.props.cardClick3}>
-                                <CardImg top width="100%" name={this.props.cardClass1} src="https://png.icons8.com/metro/1600/wizard.png" alt="Wizard avatar" />
-                                <CardBody name={this.props.cardClass3}>
-                                <CardTitle name={this.props.cardClass3}>Wizard</CardTitle>
+                            <Card className={this.props.cardClass3} onClick={this.props.cardClick3}>
+                                <CardImg top width="100%" src="https://png.icons8.com/metro/1600/wizard.png" alt="Wizard avatar" />
+                                <CardBody>
+                                <CardTitle>Wizard</CardTitle>
                                 </CardBody>
                             </Card>
                         </Col>
@@ -130,7 +130,7 @@ function mstp (state){
     }
 }
 function mdtp(dispatch) {
-    return bindActionCreators({ cardClick1, cardClick2, cardClick3, cardUnClick }, dispatch)
+    return bindActionCreators({ cardClick1, cardClick2, cardClick3 }, dispatch)
 }
 
 export default connect(mstp, mdtp)(PlayerChoice);

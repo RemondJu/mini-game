@@ -15,11 +15,6 @@
     margin-bottom: 15px;
 }
 
-.villageBckgrnd{
-    background-image: url('https://cdn.pixabay.com/photo/2014/09/04/07/58/parchment-435347_960_720.jpg');
-    background-repeat: no-repeat;
-    background-position: center; 
-}
 .villageRow{
     margin-top: 180px
 }

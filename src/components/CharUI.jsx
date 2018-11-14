@@ -1,6 +1,7 @@
 import React from 'react';
-import { Button } from 'reactstrap';
 import './CharUI.css'
+import CharStats from './CharStats';
+import Inventory from './Inventory';
 
 const CharUI = (props) => {
     return ( 
@@ -12,8 +13,9 @@ const CharUI = (props) => {
             <span>Rage : 0 / 100</span>
             <span>XP : 0 / 100</span>
             <span>300 Gold</span>
-            <Button className="mb-3" color="primary">Inventory</Button>
-            <Button color="primary">Stats</Button>
+            <CharStats buttonLabel="Stats"/>
+            <br/>
+            <Inventory buttonLabel="Inventory"/>
         </div>
      );
 }

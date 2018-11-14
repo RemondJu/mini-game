@@ -18,6 +18,3 @@ export const cardClick3 = () => ({
     type: 'CLICKED3'
 });
 
-export const cardUnClick = () => ({
-    type: 'UNCLICKED'
-});

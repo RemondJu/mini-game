@@ -1,6 +1,6 @@
 const charClass = (state= '', action) => {
     switch(action.type){
-        case 'CLICKED1': return state = action.value;
+        case '': return state = action.value;
         default: return state;
     }
 }

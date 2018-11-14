@@ -1,7 +1,6 @@
-/* eslint react/no-multi-comp: 0, react/prop-types: 0 */
-
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import PotionsShop from '../images/Potions-shop.png'
 
 class PotionShop extends React.Component {
   constructor(props) {
@@ -26,10 +25,12 @@ class PotionShop extends React.Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Are you lost wanderer ?</ModalHeader>
           <ModalBody>
-            <img className="w-100" src="http://fc07.deviantart.net/fs71/f/2010/329/1/4/voodoo_shop_by_candra-d33l0lv.jpg" alt="Blacksmith" />
+            <img className="w-100 mb-2" src={PotionsShop} alt="Potions shop" />
           </ModalBody>
-          <ModalFooter>
+          <ModalFooter className="justify-content-center">
             <Button color="primary" onClick={this.toggle}>Buy potions</Button>{' '}
+          </ModalFooter>
+          <ModalFooter className="justify-content-center">
             <Button color="secondary" onClick={this.toggle}>Back to village</Button>
           </ModalFooter>
         </Modal>

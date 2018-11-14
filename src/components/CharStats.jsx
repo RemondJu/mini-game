@@ -1,8 +1,7 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import tavern from '../images/tavern.jpg'
 
-class Tavern extends React.Component {
+class CharStats extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,16 +20,15 @@ class Tavern extends React.Component {
   render() {
     return (
       <div>
-        <Button color="secondary" onClick={this.toggle}>{this.props.buttonLabel}</Button>
+        <Button color="primary" onClick={this.toggle}>{this.props.buttonLabel}</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Hello there ! What would you like to drink ?</ModalHeader>
-          <ModalBody>
-            <img className="w-100 mb-2" src={tavern} alt="Tavern" />
+          <ModalHeader toggle={this.toggle}>Your character's stats</ModalHeader>
+          <ModalBody className="text-center">
+            <p>Strength: 15</p>
+            <p>Endurance: 13</p>
+            <p>Agility: 9</p>
+            <p>Intelligence: 3</p>
           </ModalBody>
-          <ModalFooter className="justify-content-center">
-            <Button color="primary" onClick={this.toggle}>Have a drink</Button>{' '}
-            <Button color="primary" onClick={this.toggle}>Talk with tender</Button>{' '}
-          </ModalFooter>
           <ModalFooter className="justify-content-center">
             <Button color="secondary" onClick={this.toggle}>Back to village</Button>
           </ModalFooter>
@@ -40,4 +38,4 @@ class Tavern extends React.Component {
   }
 }
 
-export default Tavern;
+export default CharStats;
