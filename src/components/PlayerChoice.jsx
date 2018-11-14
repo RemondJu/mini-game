@@ -2,32 +2,23 @@ import React, { Component } from 'react';
 import { Card, CardImg, CardBody, CardTitle, Col, Row, Container, FormGroup, Label, Input, Form, Button, FormFeedback } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import './PlayerChoice.css'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { cardClick1, cardClick2, cardClick3 } from '../actions';
 
 class PlayerChoice extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            cardClass1: 'bg-light',
-            cardClass2: 'bg-light',
-            cardClass3: 'bg-light',
             currentClass: '',
             currentCharName: '',
             disabledBtn: true,
             validInput: false,
             invalidInput: false,
          }
-        this.handleClassChoice = this.handleClassChoice.bind(this);
         this.nameInputChange = this.nameInputChange.bind(this);
     }
 
-    handleClassChoice(e){
-        this.setState({
-            cardClass1: 'bg-light',
-            cardClass2: 'bg-light',
-            cardClass3: 'bg-light',
-            [e.target.name]: "bg-success",
-        })
-    }
     nameInputChange(e){
         if ((this.state.currentCharName.length >= 4)&&(this.state.currentClass.length > 1)){
             this.setState({
@@ -37,7 +28,7 @@ class PlayerChoice extends Component {
                 invalidInput: false,
             })
         } else {
-            if (this.state.cardClass1 === 'bg-success'){
+            if (this.props.cardClass1 === 'bg-success'){
                 this.setState({
                     disabledBtn: true,
                     currentCharName: e.target.value,
@@ -45,7 +36,7 @@ class PlayerChoice extends Component {
                     invalidInput: true,
                     currentClass: 'Knight'
                 })
-            } else if (this.state.cardClass2 === 'bg-success'){
+            } else if (this.props.cardClass2 === 'bg-success'){
                 this.setState({
                     disabledBtn: true,
                     currentCharName: e.target.value,
@@ -53,7 +44,7 @@ class PlayerChoice extends Component {
                     invalidInput: true,
                     currentClass: 'Archer'
                 })
-            } else if (this.state.cardClass3 === 'bg-success'){
+            } else if (this.props.cardClass3 === 'bg-success'){
                 this.setState({
                     disabledBtn: true,
                     currentCharName: e.target.value,
@@ -74,40 +65,39 @@ class PlayerChoice extends Component {
         }        
     }
 
-
     render() { 
-        return ( 
+        return (
             <div className="PlayerChoice">
                 <Row className="justify-content-center">
                     <h1>The mini-game</h1>
                 </Row>
                 <Row className="justify-content-center">
-                    <h3>by Julien Rémond</h3>
+                    <h5>by Julien Rémond</h5>
                 </Row>
                 <Container>
                 <h5>Choose a character :</h5>
                     <Row>
                         <Col>
-                            <Card className={this.state.cardClass1} name="cardClass1" onClick={this.handleClassChoice}>
-                                <CardImg top width="100%" name="cardClass1" src="https://png.icons8.com/metro/1600/doctor-fate-helmet.png" alt="Knight avatar" />
-                                <CardBody name="cardClass1">
-                                <CardTitle name="cardClass1">Knight</CardTitle>
+                            <Card className={this.props.cardClass1} onClick={this.props.cardClick1}>
+                                <CardImg top width="100%" src="https://png.icons8.com/metro/1600/doctor-fate-helmet.png" alt="Knight avatar" />
+                                <CardBody>
+                                <CardTitle>Knight</CardTitle>
                                 </CardBody>
                             </Card>
                         </Col>
                         <Col>
-                            <Card className={this.state.cardClass2} name="cardClass2" onClick={this.handleClassChoice}>
-                                <CardImg top width="100%" name="cardClass2" src="https://png.icons8.com/ios/1600/archer.png" alt="Archer avatar" />
-                                <CardBody name="cardClass2">
-                                <CardTitle name="cardClass2">Archer</CardTitle>
+                            <Card className={this.props.cardClass2} onClick={this.props.cardClick2}>
+                                <CardImg top width="100%" src="https://png.icons8.com/ios/1600/archer.png" alt="Archer avatar" />
+                                <CardBody>
+                                <CardTitle>Archer</CardTitle>
                                 </CardBody>
                             </Card>
                         </Col>
                         <Col>
-                            <Card className={this.state.cardClass3} name="cardClass3" onClick={this.handleClassChoice}>
-                                <CardImg top width="100%" name="cardClass3" src="https://png.icons8.com/metro/1600/wizard.png" alt="Wizard avatar" />
-                                <CardBody name="cardClass3">
-                                <CardTitle name="cardClass3">Wizard</CardTitle>
+                            <Card className={this.props.cardClass3} onClick={this.props.cardClick3}>
+                                <CardImg top width="100%" src="https://png.icons8.com/metro/1600/wizard.png" alt="Wizard avatar" />
+                                <CardBody>
+                                <CardTitle>Wizard</CardTitle>
                                 </CardBody>
                             </Card>
                         </Col>
@@ -125,12 +115,22 @@ class PlayerChoice extends Component {
                         <Row className="justify-content-center">
                             <NavLink to="/Village"><Button onClick={() => this.props.submitPlayerName(this.state.currentCharName, this.state.currentClass)} disabled={this.state.disabledBtn} type="submit">Play !</Button></NavLink>
                         </Row>
-                    </Form>
-                    
+                    </Form>                    
                 </Container>
             </div>
          );
     }
 }
  
-export default PlayerChoice;
+function mstp (state){
+    return {
+        cardClass1: state.cardClass1,
+        cardClass2: state.cardClass2,
+        cardClass3: state.cardClass3
+    }
+}
+function mdtp(dispatch) {
+    return bindActionCreators({ cardClick1, cardClick2, cardClick3 }, dispatch)
+}
+
+export default connect(mstp, mdtp)(PlayerChoice);

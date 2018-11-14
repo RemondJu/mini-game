@@ -1,19 +1,21 @@
 import React from 'react';
-import { Button } from 'reactstrap';
 import './CharUI.css'
+import CharStats from './CharStats';
+import Inventory from './Inventory';
 
 const CharUI = (props) => {
     return ( 
         <div className="CharUI">
-            <img className="w-100" src="https://png.icons8.com/metro/1600/doctor-fate-helmet.png"/>
+            <img className="w-100" src={props.knightPic} alt="Knight icon"/>
             <h3>{props.charName}</h3>
             <span>{props.charClass}</span>
             <span>HP : 150 / 150</span>
             <span>Rage : 0 / 100</span>
             <span>XP : 0 / 100</span>
             <span>300 Gold</span>
-            <Button>Inventory</Button>
-            <Button>Stats</Button>
+            <CharStats buttonLabel="Stats"/>
+            <br/>
+            <Inventory buttonLabel="Inventory"/>
         </div>
      );
 }
