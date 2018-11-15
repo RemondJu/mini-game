@@ -9,12 +9,11 @@
     background-image: url('http://atextures.com/wp-content/uploads/2014/08/Asphalt-Stone-Background-115-625x416.jpg');
     color: black;
     font-weight: bold; 
-    height: 900px;
 }
 .charBckgrnd span{
     margin-bottom: 15px;
 }
 
 .villageRow{
-    margin-top: 180px
+    margin-top: 40px
 }

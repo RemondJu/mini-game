@@ -1,71 +1,29 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardBody, CardTitle, Col, Row, Container, FormGroup, Label, Input, Form, Button, FormFeedback } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-import './PlayerChoice.css'
+import '../components/PlayerChoice.css'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { cardClick1, cardClick2, cardClick3 } from '../actions';
+import { cardClick1, cardClick2, cardClick3, getCharName, validInput, invalidInput } from '../actions';
 
 class PlayerChoice extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
-            currentClass: '',
-            currentCharName: '',
-            disabledBtn: true,
-            validInput: false,
-            invalidInput: false,
-         }
-        this.nameInputChange = this.nameInputChange.bind(this);
+        this.state = { }
+        this.nameInputValidation = this.nameInputValidation.bind(this);
     }
 
-    nameInputChange(e){
-        if ((this.state.currentCharName.length >= 4)&&(this.state.currentClass.length > 1)){
-            this.setState({
-                disabledBtn: false,
-                currentCharName: e.target.value,
-                validInput: true,
-                invalidInput: false,
-            })
-        } else {
-            if (this.props.cardClass1 === 'bg-success'){
-                this.setState({
-                    disabledBtn: true,
-                    currentCharName: e.target.value,
-                    validInput: false,
-                    invalidInput: true,
-                    currentClass: 'Knight'
-                })
-            } else if (this.props.cardClass2 === 'bg-success'){
-                this.setState({
-                    disabledBtn: true,
-                    currentCharName: e.target.value,
-                    validInput: false,
-                    invalidInput: true,
-                    currentClass: 'Archer'
-                })
-            } else if (this.props.cardClass3 === 'bg-success'){
-                this.setState({
-                    disabledBtn: true,
-                    currentCharName: e.target.value,
-                    validInput: false,
-                    invalidInput: true,
-                    currentClass: 'Wizard'
-                })
-
-            } else {
-                this.setState({
-                    disabledBtn: true,
-                    currentCharName: e.target.value,
-                    validInput: false,
-                    invalidInput: true,
-                })
-            }
-            
-        }        
+    nameInputValidation(e){
+        if((this.props.charName.length >= 3) && (this.props.charClass !== 'Adventurer')){
+            this.props.getCharName(e);
+            this.props.validInput();
+        }  else {
+            this.props.getCharName(e);
+            this.props.invalidInput();
+        }
     }
 
-    render() { 
+    render() {
         return (
             <div className="PlayerChoice">
                 <Row className="justify-content-center">
@@ -105,15 +63,15 @@ class PlayerChoice extends Component {
                     <Form>
                         <FormGroup>
                             <Label for="name" className="justify-content-center">Enter your character's name :</Label>
-                            <Input 
-                            invalid={this.state.invalidInput}
-                            valid={this.state.validInput}
-                            placeholder="John Smith" onChange={this.nameInputChange} value={this.state.currentCharName}/>
+                            <Input
+                            invalid={this.props.inputIsNotValid}
+                            valid={this.props.inputIsValid}
+                            placeholder="John Smith" onChange={this.nameInputValidation} value={this.props.charName}/>
                             <FormFeedback valid>You're good to go !</FormFeedback>
-                            <FormFeedback invalid>The name is too short, or you didn't pick a class yet...</FormFeedback>
+                            <FormFeedback invalid>This name might be too short, or you didn't pick a class yet...</FormFeedback>
                         </FormGroup>
                         <Row className="justify-content-center">
-                            <NavLink to="/Village"><Button onClick={() => this.props.submitPlayerName(this.state.currentCharName, this.state.currentClass)} disabled={this.state.disabledBtn} type="submit">Play !</Button></NavLink>
+                            <NavLink to="/Village"><Button disabled={this.props.disabledBtn} type="submit">Play !</Button></NavLink>
                         </Row>
                     </Form>                    
                 </Container>
@@ -126,11 +84,16 @@ function mstp (state){
     return {
         cardClass1: state.cardClass1,
         cardClass2: state.cardClass2,
-        cardClass3: state.cardClass3
+        cardClass3: state.cardClass3,
+        charClass: state.charClass,
+        charName: state.charName,
+        inputIsValid: state.inputIsValid,
+        inputIsNotValid: state.inputIsNotValid,
+        disabledBtn: state.disabledBtn
     }
 }
 function mdtp(dispatch) {
-    return bindActionCreators({ cardClick1, cardClick2, cardClick3 }, dispatch)
+    return bindActionCreators({ cardClick1, cardClick2, cardClick3, getCharName, validInput, invalidInput }, dispatch)
 }
 
 export default connect(mstp, mdtp)(PlayerChoice);
