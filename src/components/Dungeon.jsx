@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'reactstrap';
-import CharUI from './CharUI';
+import CharUI from '../containers/CharUI';
 import './Dungeon.css'
 import Ennemy from './Ennemy';
 
@@ -58,9 +58,7 @@ class Dungeon extends Component {
             <div className="Dungeon">
             <Row>
                 <Col xs="2" className="pt-5 pl-4 text-center charBckgrnd">
-                    <CharUI
-                    charName={this.props.charName}
-                    />
+                    <CharUI/>
                 </Col>
                 <Col xs="8" className="DungeonBckgrnd">
                     <Row className="pt-5 pb-5 justify-content-center dungeonTitle">

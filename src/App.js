@@ -1,39 +1,28 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
-import PlayerChoice from './components/PlayerChoice'
+import PlayerChoice from './containers/PlayerChoice'
 import Village from './components/Village';
 import Dungeon from './components/Dungeon';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      charName: 'Unknown',
-     }
-    this.submitPlayerName = this.submitPlayerName.bind(this);
+    this.state = { }
   }
-  submitPlayerName(name){
-    this.setState({
-      charName: name,
-    })
-  }
+
   render() {
     return (
       <div className="App">
         <Switch>
           <Route exact path='/'>
-            <PlayerChoice
-            submitPlayerName={this.submitPlayerName}
-            />
+            <PlayerChoice/>
           </Route>
           <Route path='/Village'>
-            <Village 
-            charName={this.state.charName}/>
+            <Village />
           </Route>
           <Route path='/Dungeon'>
-            <Dungeon 
-            charName={this.state.charName}/>
+            <Dungeon />
           </Route>
         </Switch>
       </div>

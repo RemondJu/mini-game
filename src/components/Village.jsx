@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CharUI from './CharUI';
+import CharUI from '../containers/CharUI';
 import { Col, Row } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import Blacksmith from './Blacksmith'
@@ -23,11 +23,7 @@ class Village extends Component {
             <div className="Village">
             <Row>
                 <Col xs="2" className="pt-5 pl-4 text-center charBckgrnd">
-                    <CharUI
-                    knightPic={this.props.knightPic}
-                    charClass={this.props.charClass}
-                    charName={this.props.charName}
-                    />
+                    <CharUI/>
                 </Col>
                 <Col xs="8" className="villageBckgrnd">
                     <Row className="pt-5 pb-5 justify-content-center villageTitle">

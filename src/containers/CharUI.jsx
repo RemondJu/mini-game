@@ -1,7 +1,7 @@
 import React from 'react';
-import './CharUI.css'
+import '../components/CharUI.css'
 import CharStats from './CharStats';
-import Inventory from './Inventory';
+import Inventory from '../components/Inventory';
 import { connect } from 'react-redux';
 
 const CharUI = (props) => {
@@ -10,9 +10,9 @@ const CharUI = (props) => {
             <img className="w-100" src={props.charPic} alt="Knight icon"/>
             <h3>{props.charName}</h3>
             <span>{props.charClass}</span>
-            <span>HP : 150 / 150</span>
+            <span>HP : {props.charHealth} / {props.charMaxHealth}</span>
             <span>Rage : 0 / 100</span>
-            <span>XP : 0 / 100</span>
+            <span>XP : {props.charExperience} / {props.charMaxExperience}</span>
             <span>300 Gold</span>
             <CharStats buttonLabel="Stats"/>
             <br/>
@@ -22,8 +22,14 @@ const CharUI = (props) => {
 }
 function mstp (state){
     return {
+        charName: state.charName,
         charPic: state.charPic,
-        charClass: state.charClass
+        charClass: state.charClass,
+        charHealth: state.charHealth,
+        charMaxHealth: state.charMaxHealth,
+        charExperience: state.charExperience,
+        charMaxExperience: state.charMaxExperience,
+        
     }
 }
 

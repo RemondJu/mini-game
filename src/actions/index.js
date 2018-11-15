@@ -1,20 +1,23 @@
-export const getCharClass = value => ({
-    type: 'CHAR_INPUT',
-    value
-});
-
-export const getCharName = value => ({
+export const getCharName = e => ({
     type: 'NAME_INPUT',
-    value
+    value: e.target.value
 });
 
 export const cardClick1 = () => ({
-    type: 'CLICKED1'
+    type: 'CLICKED_KNIGHT'
 });
 export const cardClick2 = () => ({
-    type: 'CLICKED2'
+    type: 'CLICKED_ARCHER'
 });
 export const cardClick3 = () => ({
-    type: 'CLICKED3'
+    type: 'CLICKED_WIZARD'
 });
+
+export const validInput = () => ({
+    type: 'VALID_INPUT'
+})
+
+export const invalidInput = () => ({
+    type: 'INVALID_INPUT'
+})
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class CharStats extends React.Component {
@@ -24,10 +25,9 @@ class CharStats extends React.Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Your character's stats</ModalHeader>
           <ModalBody className="text-center">
-            <p>Strength: 15</p>
-            <p>Endurance: 13</p>
-            <p>Agility: 9</p>
-            <p>Intelligence: 3</p>
+            <p>Strength: {this.props.charStrength}</p>
+            <p>Agility: {this.props.charAgility}</p>
+            <p>Intelligence: {this.props.charIntelligence}</p>
           </ModalBody>
           <ModalFooter className="justify-content-center">
             <Button color="secondary" onClick={this.toggle}>Back to village</Button>
@@ -38,4 +38,12 @@ class CharStats extends React.Component {
   }
 }
 
-export default CharStats;
+function mstp (state){
+  return {
+      charStrength: state.charStrength,
+      charAgility: state.charAgility,
+      charIntelligence: state.charIntelligence,
+  }
+}
+
+export default connect(mstp)(CharStats);
