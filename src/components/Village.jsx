@@ -8,6 +8,7 @@ import Tavern from './Tavern';
 import PotionShop from './PotionShop';
 import WeaponsShop from './WeaponsShop';
 import Training from './Training';
+import Quests from '../containers/Quests';
 
 
 class Village extends Component {
@@ -15,9 +16,7 @@ class Village extends Component {
         super(props);
         this.state = {  }
     }
-    componentDidMount(){
-        console.log(this.props)
-    }
+
     render() {
         return (
             <div className="Village">
@@ -58,11 +57,7 @@ class Village extends Component {
                     </Row>                 
                 </Col>
                 <Col className="ml-1 mt-5 questBckgrnd">
-                        <h3>Quests :</h3>
-                        <ul>
-                            <li>Kill the goblin chief. <br/>Reward : 150 gold <br/>XP : 150</li>
-                            <li>Get to level 2. <br/>Reward : Iron sword</li>
-                        </ul>                                      
+                    <Quests />                                    
                 </Col>
             </Row>   
             </div>

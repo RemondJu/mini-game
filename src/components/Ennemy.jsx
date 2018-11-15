@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, CardLink,
     CardTitle, CardSubtitle } from 'reactstrap';
-import { NavLink } from 'react-router-dom';
 
 class Ennemy extends Component {
     constructor(props) {
@@ -22,7 +21,6 @@ class Ennemy extends Component {
                     <CardLink href="#">Attack</CardLink>
                     <CardLink href="#">Potion</CardLink>
                     </CardBody>
-                    <NavLink to="/Village">Flee</NavLink>
                 </Card>
             </div>
          );

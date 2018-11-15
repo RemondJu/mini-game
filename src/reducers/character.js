@@ -113,3 +113,9 @@ export const charIntelligence = (state = 6, action) => {
       return state;
   }
 };
+
+export const charLevel = (state = 1, action) => {
+  switch(action.type){
+    default: return state;
+  }
+}

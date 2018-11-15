@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
 import { cardClass1, cardClass2, cardClass3 } from './cardClass';
 import disabledBtn from './disabledBtn';
-import { charName, charExperience, charMaxExperience, charPic, charClass, charHealth, charStrength, charAgility, charIntelligence, charMaxHealth } from './character';
+import { charName, charLevel, charExperience, charMaxExperience, charPic, charClass, charHealth, charStrength, charAgility, charIntelligence, charMaxHealth } from './character';
 import { inputIsNotValid, inputIsValid } from './inputState';
+import { ennemiesFloor1 } from './ennemies';
 
 const allReducers = combineReducers({
     charName,
@@ -21,6 +22,8 @@ const allReducers = combineReducers({
     charMaxExperience,
     inputIsValid,
     inputIsNotValid,
+    ennemiesFloor1,
+    charLevel,
 })
 
 export default allReducers;

@@ -3,7 +3,7 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom'
 import PlayerChoice from './containers/PlayerChoice'
 import Village from './components/Village';
-import Dungeon from './components/Dungeon';
+import Dungeon from './containers/Dungeon';
 
 class App extends Component {
   constructor(props) {
