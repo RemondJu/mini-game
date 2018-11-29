@@ -21,3 +21,8 @@ export const invalidInput = () => ({
     type: 'INVALID_INPUT'
 })
 
+export const attack = (str) => ({
+    type: 'ATTACK',
+    str
+})
+

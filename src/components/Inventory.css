@@ -1,0 +1,10 @@
+.inventory{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.inventorySpace {
+  border: 1px solid black;
+  width: 75px;
+  height: 75px;
+}

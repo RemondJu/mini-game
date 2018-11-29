@@ -35,7 +35,7 @@ export const charPic = (
   }
 };
 
-export const charHealth = (state = 0, action) => {
+export const charHealth = (state = 70, action) => {
   switch (action.type) {
     case "CLICKED_KNIGHT":
       return (state = 150);
@@ -43,6 +43,8 @@ export const charHealth = (state = 0, action) => {
       return (state = 120);
     case "CLICKED_WIZARD":
       return (state = 90);
+    case "ATTACK": 
+      return state = state - action.str;
     default:
       return state;
   }

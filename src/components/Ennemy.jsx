@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardText, CardBody, CardLink,
+import { Card, CardImg, CardText, CardBody, Button,
     CardTitle, CardSubtitle } from 'reactstrap';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { attack } from '../actions';
 
 class Ennemy extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
+    }
+
+
+    coucou() {
+        console.log('coucou')
     }
     render() { 
         return ( 
@@ -18,13 +26,17 @@ class Ennemy extends Component {
                     <CardImg width="100%" src={this.props.pic} alt="Card image cap" />
                     <CardBody>
                     <CardText>HP : {this.props.health}</CardText>
-                    <CardLink href="#">Attack</CardLink>
-                    <CardLink href="#">Potion</CardLink>
+                    <Button onClick={() => this.props.attack(this.props.str)}>Attack</Button>
+                    <Button onClick={this.coucou}>Potion</Button>
                     </CardBody>
                 </Card>
             </div>
          );
     }
 }
+
+function mdtp(dispatch) {
+  return bindActionCreators({ attack }, dispatch)
+}
  
-export default Ennemy;
+export default connect(null, mdtp)(Ennemy);

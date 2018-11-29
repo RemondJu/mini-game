@@ -17,7 +17,7 @@ class PlayerChoice extends Component {
         if((this.props.charName.length >= 3) && (this.props.charClass !== 'Adventurer')){
             this.props.getCharName(e);
             this.props.validInput();
-        }  else {
+        } else {
             this.props.getCharName(e);
             this.props.invalidInput();
         }
