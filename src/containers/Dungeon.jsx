@@ -10,8 +10,12 @@ import Player from './Player';
 class Dungeon extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+            min:0,
+            max:1
+         }
     }
+
     render() {
         return ( 
             <div className="Dungeon">
@@ -28,7 +32,7 @@ class Dungeon extends Component {
                             <Player />
                         </Col>
                         <Col>                        
-                        {this.props.ennemiesFloor1.slice(0,1).map((ennemy, index) => {
+                        {this.props.ennemiesFloor1.slice(this.state.min,this.state.max).map((ennemy, index) => {
                            return <div className="justify-content-center">
                                     <Ennemy 
                                     key={index}
@@ -36,6 +40,7 @@ class Dungeon extends Component {
                                     level={ennemy.level}
                                     health={ennemy.health}
                                     pic={ennemy.pic}
+                                    str={ennemy.strength}
                                     />
                                 </div>
                         })}
