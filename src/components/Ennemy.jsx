@@ -3,7 +3,7 @@ import { Card, CardImg, CardText, CardBody, Button,
     CardTitle, CardSubtitle } from 'reactstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { attack } from '../actions';
+import { attack, deadEnnemy } from '../actions';
 
 class Ennemy extends Component {
     constructor(props) {
@@ -12,9 +12,19 @@ class Ennemy extends Component {
     }
 
 
-    coucou() {
-        console.log('coucou')
+    attackCounterAttck(str, idx) {
+      if(this.props.health <= 0){
+        this.props.deadEnnemy();
+      } else {
+        this.props.attack(str, idx);
+        setTimeout(
+          function()
+          {console.log('bisou magique')}, 1000
+        )
+      }
+      
     }
+
     render() { 
         return ( 
             <div className="mt-5 text-center">
@@ -26,8 +36,8 @@ class Ennemy extends Component {
                     <CardImg width="100%" src={this.props.pic} alt="Card image cap" />
                     <CardBody>
                     <CardText>HP : {this.props.health}</CardText>
-                    <Button onClick={() => this.props.attack(this.props.str)}>Attack</Button>
-                    <Button onClick={this.coucou}>Potion</Button>
+                    <Button onClick={() => this.attackCounterAttck(this.props.str, this.props.idx)}>Attack</Button>
+                    <Button onClick={this.attackCounterAttck}>Potion</Button>
                     </CardBody>
                 </Card>
             </div>
@@ -36,7 +46,13 @@ class Ennemy extends Component {
 }
 
 function mdtp(dispatch) {
-  return bindActionCreators({ attack }, dispatch)
+  return bindActionCreators({ attack, deadEnnemy }, dispatch)
+}
+
+function mstp (state) {
+  return {
+    health: state.ennemiesFloor1[0].health
+  }
 }
  
-export default connect(null, mdtp)(Ennemy);
+export default connect(mstp, mdtp)(Ennemy);

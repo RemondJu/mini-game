@@ -1,4 +1,4 @@
-export const ennemiesFloor1 = () => [
+const initialState = [
   {
       name: "goblin",
       level: 2,
@@ -41,3 +41,31 @@ export const ennemiesFloor1 = () => [
       pic: 'https://i.pinimg.com/originals/d5/d5/93/d5d5931d718af22cd1b2d5d831f8284c.jpg'
   }
 ]
+
+export const ennemiesFloor1 = (state=initialState, action) => {
+  switch (action.type){
+    case 'ATTACK': 
+      let newInitialState = initialState;
+      newInitialState[action.idx].health -= action.str;
+      return state=initialState;
+    default: return state;
+  }
+}
+
+export const minIndex = (state=0, action) =>{
+  switch(action.type){
+    case 'DEAD_ENNEMY' :
+      return state += 1;
+    default: 
+      return state;
+  }
+}
+
+export const maxIndex = (state=1, action) =>{
+  switch(action.type){
+    case 'DEAD_ENNEMY' :
+      return state += 1;
+    default: 
+      return state;
+  }
+}
