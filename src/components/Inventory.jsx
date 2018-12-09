@@ -25,7 +25,7 @@ class Inventory extends React.Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Inventory</ModalHeader>
           <ModalBody className="justify-content-center inventory">
-            {Array.from({length: 30}).map(square => <div className="inventorySpace"></div>)}
+            {Array.from({length: 30}).map((square, index) => <div key={index} className="inventorySpace"></div>)}
           </ModalBody>
           <ModalFooter className="justify-content-center">
             <Button color="secondary" onClick={this.toggle}>Back to village</Button>

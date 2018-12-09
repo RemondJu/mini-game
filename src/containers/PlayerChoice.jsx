@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import { cardClick1, cardClick2, cardClick3, getCharName, validInput, invalidInput } from '../actions';
 
 class PlayerChoice extends Component {
-    constructor(props) {
+    constructor(props) {        
         super(props);
         this.state = { }
         this.nameInputValidation = this.nameInputValidation.bind(this);
