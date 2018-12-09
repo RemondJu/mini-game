@@ -1,5 +1,6 @@
 const initialState = [
   {
+      id: 1,
       name: "goblin",
       level: 2,
       strength: 3,
@@ -8,6 +9,7 @@ const initialState = [
       gold: 20,
       pic: 'http://3.bp.blogspot.com/-BCIzvFseAds/VlV_2eiOAwI/AAAAAAAAIoA/8NrlYuDsfNE/s1600/PZO1002_008-065_Ch1_Burnt_Offerings-30.jpg'
   },{
+      id: 2,
       name: "slime",
       level: 1,
       strength: 5,
@@ -16,6 +18,7 @@ const initialState = [
       gold: 5,
       pic: 'https://d1u5p3l4wpay3k.cloudfront.net/slaythespire_gamepedia_en/thumb/b/b7/SlimeBoss.png/250px-SlimeBoss.png?version=4d14ae8dacff7f4c8818c08ac949b125'
   },{
+      id: 3,
       name: "goblin",
       level: 2,
       strength: 3,
@@ -24,6 +27,7 @@ const initialState = [
       gold: 20,
       pic: 'http://3.bp.blogspot.com/-BCIzvFseAds/VlV_2eiOAwI/AAAAAAAAIoA/8NrlYuDsfNE/s1600/PZO1002_008-065_Ch1_Burnt_Offerings-30.jpg'
   },{
+      id: 4,
       name: "slime",
       level: 1,
       strength: 5,
@@ -32,6 +36,7 @@ const initialState = [
       gold: 5,
       pic: 'https://d1u5p3l4wpay3k.cloudfront.net/slaythespire_gamepedia_en/thumb/b/b7/SlimeBoss.png/250px-SlimeBoss.png?version=4d14ae8dacff7f4c8818c08ac949b125'
   },{
+      id: 5,
       name: "goblin chief",
       level: 4,
       strength: 7,
@@ -44,10 +49,12 @@ const initialState = [
 
 export const ennemiesFloor1 = (state=initialState, action) => {
   switch (action.type){
-    case 'ATTACK': 
-      let newInitialState = initialState;
-      newInitialState[action.idx].health -= action.str;
-      return state=initialState;
+    case 'ATTACK':
+    initialState[action.idx].health -= action.charStr;
+      return state = initialState;
+    case 'DEAD_ENNEMY':
+    initialState[action.idx].health = 0;
+      return state = initialState;
     default: return state;
   }
 }

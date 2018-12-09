@@ -21,9 +21,10 @@ export const invalidInput = () => ({
     type: 'INVALID_INPUT'
 });
 
-export const attack = (str, idx) => ({
+export const attack = (str, charStr, idx) => ({
     type: 'ATTACK',
     str,
+    charStr,
     idx
 });
 
@@ -31,3 +32,11 @@ export const deadEnnemy = () => ({
   type: 'DEAD_ENNEMY'
 });
 
+export const drinkPotion = () => ({
+    type: 'DRINK_POTION'
+})
+
+export const fullLife = (maxHealth) => ({
+    type: 'FULL_LIFE',
+    maxHealth,
+})

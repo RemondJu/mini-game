@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Col, Row } from "reactstrap";
 import CharUI from "./CharUI";
-import "../components/Dungeon.css";
-import Ennemy from "../components/Ennemy";
+import "./Dungeon.css";
+import Ennemy from "./Ennemy";
 import { connect } from "react-redux";
 import Quests from "./Quests";
 import Player from "./Player";
@@ -33,9 +33,8 @@ class Dungeon extends Component {
                   .slice(this.props.minIndex, this.props.maxIndex)
                   .map((ennemy, index) => {
                     return (
-                      <div className="justify-content-center">
+                      <div key={ennemy.id} className="justify-content-center">
                         <Ennemy
-                          key={index}
                           idx={index}
                           name={ennemy.name}
                           level={ennemy.level}

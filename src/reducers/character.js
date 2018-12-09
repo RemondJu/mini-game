@@ -45,6 +45,10 @@ export const charHealth = (state = 70, action) => {
       return (state = 90);
     case "ATTACK": 
       return state = state - action.str;
+    case "DRINK_POTION": 
+      return state = state + 15;
+    case "FULL_LIFE": 
+      return state = action.maxHealth;
     default:
       return state;
   }
